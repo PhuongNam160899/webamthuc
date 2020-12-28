@@ -2,7 +2,7 @@
     include 'config.php';
     session_start();
     $use = $_SESSION['use'];
-    			$date = date('Y-m-d');;
+    $date = date('Y-m-d');
     if (isset($_POST["comment_submit"]) && $use != '') {
     	$id = $_SESSION['product_id'];
     	$content = $_POST['content'];	

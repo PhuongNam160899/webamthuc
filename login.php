@@ -1,6 +1,8 @@
+ <?php
+session_start();
+?>
  <!DOCTYPE html>
  <html>
-
  <head>
      <title>Đăng Nhập</title>
      <link href="login.css" rel="stylesheet" />

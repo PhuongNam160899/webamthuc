@@ -20,6 +20,7 @@ session_start();
         <?php
                 include 'config.php';
                 $id = $_GET['id'];
+                $_SESSION['product_id'] = $_GET['id'];
                 $sql = "SELECT * FROM product WHERE id=$id";
                 $user = mysqli_query($conn,$sql); 
                 if(mysqli_num_rows($user) > 0){
@@ -39,15 +40,17 @@ session_start();
                 <div class="inforproduct-title_body-price">
                     <b class="number"><?php echo $data['price']?></b>
                 </div>
+                <form action="cart_submit.php" method="POST">
                 <div class="inforproduct-title_body-cart">
                     <div class="inforproduct-title_body-cart_number">
                         <p>Số lượng :</p>
-                        <input type="number" class="cart_number" name="">
+                        <input type="number" class="cart_number" value="1" name="cart_number">
                     </div>
                     <div class="inforproduct-title_body-cart_submit">
-                        <input type="submit" class="cart_submit" name="" value="Thêm vào giỏ hàng">
+                        <input type="submit" class="cart_submit" name="cart_submit" value="Thêm vào giỏ hàng">
                     </div>
                 </div>
+                </form>
                 <div class="inforproduct-introduce">
                     <b>Giới thiệu</b>
                     <p><?php echo $data['descr']?></p>
@@ -65,7 +68,6 @@ session_start();
             <?php
                 include 'config.php';
                 $id = $_GET['id'];
-                $_SESSION['product_id'] = $_GET['id'];
                 $sql = "SELECT * FROM comment WHERE product_id=$id";
                 $user = mysqli_query($conn,$sql); 
                 if(mysqli_num_rows($user) > 0){

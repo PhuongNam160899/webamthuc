@@ -18,7 +18,10 @@ if (isset($_POST["submit"]) && $_POST["usename"] != '' && $_POST["password"] != 
             header("location:index.php");
         }
     } else {
-        echo "Dang nhap that bai";
+        echo "Vui lòng nhập đầy đủ tên đăng nhập và mật khẩu. <a href='javascript: history.go(-1)'>Trở lại</a>";
+        exit;
+        //echo $_SESSION['error'];
+        header("location:login.php");
     }
 } else {
     header("location:login.php");

@@ -26,7 +26,16 @@
             <?php
                 include 'config.php';
                 $search = $_POST["search"];
-                $sql = "SELECT * FROM `product` WHERE match (title) against('$search')";
+                if($search == "")
+                {
+                    echo '<script language="javascript">';
+                    echo 'alert("message successfully sent")';
+                    echo '</script>';
+                    exit;
+                }
+                else
+                {
+                $sql = "SELECT * FROM `product` WHERE match (title) against('$search' IN BOOLEAN MODE)";
                 $user = mysqli_query($conn,$sql); 
                 if(mysqli_num_rows($user) > 0){
                 while($data = mysqli_fetch_assoc($user)){
@@ -45,7 +54,9 @@
             <?php
                 }
                 }
+                }
             ?>  
+                
         </div>
     </div>
     <div class="footer"></div>

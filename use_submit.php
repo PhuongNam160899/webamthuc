@@ -12,6 +12,7 @@ if (isset($_POST["save"])) {
     header("location:use.php"); 
 } elseif(isset($_POST["logout"])) {
     unset($_SESSION['use']);
+    unset($_SESSION['cart']);
     header("location:login.php");
 }
 else{

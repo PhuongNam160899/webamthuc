@@ -7,6 +7,6 @@ if ($_SESSION['use']=="")
 } 
 else
 {
-    header("location:index.php");
+    header("location:cart.php");
 }
 ?>

@@ -22,7 +22,7 @@ if (isset($_POST["submit"]) && $_POST["usename"] != '' && $_POST["password"] != 
             $password =md5($password);
             $sql = "INSERT INTO user(username,password,sdt,Diachi,gmail) VALUES ('$username','$password','$sdt',N'$diachi','$gmail')";
             $test = mysqli_query($conn, $sql);
-            $ab = mysqli_num_rows($test);
+            // $ab = mysqli_num_rows($test);
             header("location:login.php");
         }
     }  
